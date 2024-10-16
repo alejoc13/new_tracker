@@ -257,7 +257,7 @@ async def compare_documents():
         else:
             print("tu marido es la referencia")
             cfn_to_search = list(set(document_1[distribution["document2"]["column_reference"]].dropna()))
-            search_on_this_list = list(set(document_1[distribution["document2"]["column_reference"]].dropna()))
+            search_on_this_list = list(set(document_1[distribution["document1"]["column_reference"]].dropna()))
         tasks = [fuzz_matching(cfn,search_on_this_list) for cfn in cfn_to_search]
         results = await asyncio.gather(*tasks)
         final_result =[]
